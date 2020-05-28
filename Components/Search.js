@@ -1,6 +1,6 @@
 // Components/Search.js
 import React from 'react';
-import { View, TextInput, Button } from 'react-native';
+import { StyleSheet, View, TextInput, Button } from 'react-native';
 
 
 const Search = () => {
@@ -17,7 +17,7 @@ const Search = () => {
 
 //Externalisation des styles !!
 
-const styles = { // constante contenant toutes nos styles react native !!!
+const styles = StyleSheet.create( { // constante contenant toutes nos styles react native !!!
 
     textinput: {
       marginLeft: 10,
@@ -28,7 +28,11 @@ const styles = { // constante contenant toutes nos styles react native !!!
       paddingLeft: 5
     }
 
-  }
+  } )
+
+  // <TextInput style={[styles.textinput, { marginBottom: 10 }]} placeholder='Titre du film'/>
+
+  // StyleSheet augmente les performances de votre application en associant votre style à un identifiant
 
 
 
