@@ -6,18 +6,27 @@ import { StyleSheet, View, TextInput, Button } from 'react-native';
 const Search = () => {
     return (
 
-        <View style = {{ marginTop: 45 }} >
-            <TextInput style = {styles.textinput} placeholder='Titre du film'/>
-            <Button title='Rechercher' onPress={() => {}}/>
-        </View>
+      <View style={{ flex: 1, flexDirection: 'row', backgroundColor: 'yellow' }}>
+      <View style={{ flex: 1, backgroundColor: 'green' }}></View>
+      <View style={{ flex: 1, backgroundColor: 'yellow' }}></View>
+      <View style={{ flex: 1, backgroundColor: 'red' }}></View>
+    </View>
 
     )
 }
 
 
+
+
 //Externalisation des styles !!
 
 const styles = StyleSheet.create( { // constante contenant toutes nos styles react native !!!
+
+    main_container: {
+        flex: 1,
+        marginTop: 45
+
+    },    
 
     textinput: {
       marginLeft: 10,
