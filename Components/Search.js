@@ -6,15 +6,17 @@ import { StyleSheet, View, TextInput, Button } from 'react-native';
 const Search = () => {
     return (
 
-      <View style={{ flex: 1, flexDirection: 'row', backgroundColor: 'yellow' }}>
-      <View style={{ flex: 1, backgroundColor: 'green' }}></View>
-      <View style={{ flex: 1, backgroundColor: 'yellow' }}></View>
-      <View style={{ flex: 1, backgroundColor: 'red' }}></View>
-    </View>
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'black' }}>
+        <View style={{ height: 50, width: 50, backgroundColor: 'green' }}></View>
+        <View style={{ height: 50, width: 50, backgroundColor: 'yellow' }}></View>
+        <View style={{ height: 50, width: 50, backgroundColor: 'red' }}></View>
+      </View>
 
     )
 }
 
+//Le style  justifyContent  permet de définir comment sont distribués vos components enfants sur l'axe principal
+//Le style  alignItems  est comme  justifyContent, sauf qu'il s'applique sur l'axe secondaire
 
 
 
