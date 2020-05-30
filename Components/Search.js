@@ -1,7 +1,8 @@
 // Components/Search.js
 
 import React from 'react';
-import { StyleSheet, View, TextInput, Button, FlatList, Text} from 'react-native';
+import { StyleSheet, View, TextInput, Button, FlatList} from 'react-native';
+import FilmItem from './FilmItem';
 import films from '../Helpers/filmsData';
 
 class Search extends React.Component {
@@ -10,26 +11,15 @@ class Search extends React.Component {
       <View style={styles.main_container}>
         <TextInput style={styles.textinput} placeholder='Titre du film'/>
         <Button title='Rechercher' onPress={() => {}}/>
-        <FlatList 
-          data = { films } 
-          keyExtractor={ (item) => item.id.toString() } 
-          renderItem={ ({item}) => <Text>{item.title}</Text> } 
-          />
+        <FlatList
+          data={films}
+          keyExtractor={(item) => item.id.toString()}
+          renderItem={({item}) => <FilmItem/>}
+        />
       </View>
     )
   }
 }
-
-/*
-Une FlatList doit obligatoirement implémenter deux propriétés :
-
-  - data : qui correspond aux données affichées dans la liste. Ici, on renseignera nos films ;
-
-  - renderItem : qui correspond au rendu des données de la liste. Ici, on définira un template pour afficher nos films.
-*/
-
-
-
 
 const styles = StyleSheet.create({
   main_container: {
@@ -37,8 +27,8 @@ const styles = StyleSheet.create({
     marginTop: 45
   },
   textinput: {
-    marginLeft: 10,
-    marginRight: 10,
+    marginLeft: 5,
+    marginRight: 5,
     height: 50,
     borderColor: '#000000',
     borderWidth: 1,
@@ -46,4 +36,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default Search
+export default Search;
