@@ -3,16 +3,26 @@
 import React from 'react';
 import { StyleSheet, View, TextInput, Button, FlatList} from 'react-native';
 import FilmItem from './FilmItem';
-import films from '../Helpers/filmsData';
+//import films from '../Helpers/filmsData';
 import { getFilmsFromApiWithSearchedText } from '../API/TMDBApi';
 
 class Search extends React.Component {
+
+  constructor(props) {
+
+    super(props);
+    this._films = [];
+
+  }
 
 
 
   _loadFilms() {
 
-    getFilmsFromApiWithSearchedText("star").then(data => console.log(data));
+    getFilmsFromApiWithSearchedText("star").then(data => {
+      this._films = data.results;
+      this.forceUpdate();
+    });
 
   }
 
@@ -22,7 +32,7 @@ class Search extends React.Component {
         <TextInput style={styles.textinput} placeholder='Titre du film'/>
         <Button title='Rechercher' onPress={ () => this._loadFilms() }/>
         <FlatList
-          data={films}
+          data={this._films}
           keyExtractor={(item) => item.id.toString()}
           renderItem={({item}) => <FilmItem film={ item }/>}
         />
