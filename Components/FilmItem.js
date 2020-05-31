@@ -11,7 +11,7 @@ class FilmItem extends React.Component {
         <Image style={styles.image} source={{uri: "image"}}/>
         <View style={styles.content_container}>
           <View style={styles.header_container}>
-    <Text style={styles.title_text}>{film.title}</Text>
+            <Text style={styles.title_text}>{film.title}</Text>
             <Text style={styles.vote_text}>{film.vote_average}</Text>
           </View>
           <View style={styles.description_container}>
