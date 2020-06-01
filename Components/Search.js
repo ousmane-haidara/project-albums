@@ -59,7 +59,12 @@ class Search extends React.Component {
           keyExtractor={(item) => item.id.toString()}
           renderItem={({item}) => <FilmItem film={item}/>}
         />
-        {this._displayLoading()}
+        { this.state.isLoading ?
+            <View style={styles.loading_container}>
+              <ActivityIndicator size='large' />
+            </View>
+            : null
+        }
       </View>
     )
   }
