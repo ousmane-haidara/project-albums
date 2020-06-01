@@ -20,7 +20,7 @@ class Search extends React.Component {
       getFilmsFromApiWithSearchedText(this.searchedText).then(data => {
           this.setState({ films: data.results })
       })
-    }
+    } 
   }
 
   _searchTextInputChanged(text) {
