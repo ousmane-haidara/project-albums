@@ -34,6 +34,19 @@ class Search extends React.Component {
     }
   } 
 
+  _searchFilms() { // Une fonction pour la recherche uniquement
+    this.page = 0
+    this.totalPages = 0
+    this.setState({ // state.fims à zero !!!
+      films: []
+    },
+    () => { //callback car setstate est asyn !!
+      // J'utilise la paramètre length sur mon tableau de films pour vérifier qu'il y a bien 0 film
+      console.log("Page : " + this.page + " / TotalPages : " + this.totalPages + " / Nombre de films : " + this.state.films.length)
+      this._loadFilms() 
+  })
+  }
+
   _searchTextInputChanged(text) {
     this.searchedText = text // Modification du texte recherché à chaque saisie de texte, sans passer par le setState comme avant
   }
@@ -57,9 +70,9 @@ class Search extends React.Component {
           style={styles.textinput}
           placeholder='Titre du film'
           onChangeText={(text) => this._searchTextInputChanged(text)}
-          onSubmitEditing={() => this._loadFilms()}
+          onSubmitEditing={() => this._searchFilms()}
         />
-        <Button title='Rechercher' onPress={() => this._loadFilms()}/>
+        <Button title='Rechercher' onPress={() => this._searchFilms()}/>
         <FlatList
           data={this.state.films}
           keyExtractor={(item) => item.id.toString()}
